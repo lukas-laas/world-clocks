@@ -1,11 +1,22 @@
+import { useState } from "react";
+import "./add-time-zone.css";
+
 export function AddTimeZone({ onFormData }) {
+  const [input, setInput] = useState<string>("");
+  function handleClick() {
+    onFormData(input);
+  }
+
   return (
-    <form action="">
-      <input type="text" />
-      <button
-        type="button"
-        onClick={() => onFormData("America/New_York")}
-      ></button>
+    <form className="time-zone-form" action="">
+      <input
+        type="text"
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="IANA time zone"
+      />
+      <button type="button" onClick={() => handleClick()}>
+        Add time zone
+      </button>
     </form>
   );
 }

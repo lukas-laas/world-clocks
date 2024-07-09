@@ -10,7 +10,7 @@ export function Board() {
     "America/Los_Angeles",
   ]);
 
-  const [date, setDate] = useState(new Date().getTime());
+  const [date, setDate] = useState(new Date());
 
   const onFormData = (data: string) => {
     setTimeZones([...timeZones, data]);
@@ -18,17 +18,19 @@ export function Board() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDate(new Date().getTime());
+      setDate(new Date());
     }, 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="clocks-board">
-      {timeZones.map((timeZone, i) => {
-        return <Clock key={i} timeZone={timeZone} time={date}></Clock>;
-      })}
+    <section className="clocks-section">
       <AddTimeZone onFormData={onFormData} />
+      <div className="clocks-board">
+        {timeZones.map((timeZone, i) => {
+          return <Clock key={i} timeZone={timeZone} time={date}></Clock>;
+        })}
+      </div>
     </section>
   );
 }
