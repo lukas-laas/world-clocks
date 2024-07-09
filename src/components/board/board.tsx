@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 import { Clock } from "../clock/clock";
+import { AddTimeZone } from "../add-time-zone/add-time-zone";
 import "./board.css";
 
 export function Board() {
-  const timeZones: string[] = [
+  const [timeZones, setTimeZones] = useState([
     "Europe/Stockholm",
     "Europe/Helsinki",
     "America/Los_Angeles",
-  ];
+  ]);
+
   const [date, setDate] = useState(new Date().getTime());
+
+  const onFormData = (data: string) => {
+    setTimeZones([...timeZones, data]);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,6 +28,7 @@ export function Board() {
       {timeZones.map((timeZone, i) => {
         return <Clock key={i} timeZone={timeZone} time={date}></Clock>;
       })}
+      <AddTimeZone onFormData={onFormData} />
     </section>
   );
 }
