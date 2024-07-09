@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./add-time-zone.css";
 
-export function AddTimeZone({
-  onFormData,
-}: {
+type Props = {
   onFormData: (data: string) => void;
-}) {
+};
+
+export function AddTimeZone({ onFormData }: Props) {
   const [input, setInput] = useState<string>("");
   function handleClick() {
     onFormData(input);
