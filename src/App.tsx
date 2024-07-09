@@ -5,7 +5,9 @@ function App() {
   return (
     <>
       <h1>World Clocks</h1>
-      <Board></Board>
+      <main>
+        <Board></Board>
+      </main>
     </>
   );
 }

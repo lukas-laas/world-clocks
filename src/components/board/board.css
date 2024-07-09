@@ -1,0 +1,18 @@
+.clocks-board {
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+@media (min-width: 700px) {
+  .clocks-board {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .clocks-board {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

@@ -1,0 +1,9 @@
+.clock-wrapper {
+  width: 100%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Clock } from "../clock/clock";
+import "./board.css";
 
 export function Board() {
   const timeZones: string[] = [
@@ -17,10 +18,10 @@ export function Board() {
   }, []);
 
   return (
-    <>
+    <section className="clocks-board">
       {timeZones.map((timeZone, i) => {
         return <Clock key={i} timeZone={timeZone} time={date}></Clock>;
       })}
-    </>
+    </section>
   );
 }
