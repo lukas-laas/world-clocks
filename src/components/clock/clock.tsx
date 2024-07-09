@@ -8,9 +8,10 @@ type props = {
 export const Clock = ({ timeZone, time }: props) => {
   const zonedTime = toZonedTime(new Date(time), timeZone);
   const pattern = "HH:mm:ss";
+  const city = timeZone.replace("_", " ").split("/");
   return (
     <div>
-      <h2>{timeZone}</h2>
+      <h2>{city[1]}</h2>
       <p>{format(zonedTime, pattern)}</p>
     </div>
   );
